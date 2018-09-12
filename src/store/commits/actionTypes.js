@@ -1,0 +1,10 @@
+export default {
+  INIT: 'commits/INIT',
+  INIT_REQUEST: 'commits/INIT_REQUEST',
+  INIT_SUCCESS: 'commits/INIT_SUCCESS',
+  INIT_FAILURE: 'commits/INIT_FAILURE',
+  SEARCH: 'commits/SEARCH',
+  SEARCH_REQUEST: 'commits/SEARCH_REQUEST',
+  SEARCH_SUCCESS: 'commits/SEARCH_SUCCESS',
+  SEARCH_FAILURE: 'commits/SEARCH_FAILURE'
+};
