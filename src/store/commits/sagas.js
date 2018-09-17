@@ -1,7 +1,8 @@
-import { takeLatest, all, put } from 'redux-saga/effects';
+import { takeLatest, all, put, select } from 'redux-saga/effects';
 
 import actionTypes from './actionTypes';
 import actions from './actions';
+import selectors from './selectors';
 import request from '../../helpers/request';
 
 function* init(action) {
@@ -20,9 +21,13 @@ function* init(action) {
 function* search(action) {
   yield put(actions.searchRequest());
 
+  const repoName = yield select(selectors.getRepoId);
+
   try {
     const fetchResponse = yield request({
-      url: `https://api.github.com/search/commits?q=repo:${action.repo}+${action.searchTerm}`
+      url: `https://api.github.com/search/commits?q=repo:${repoName}+${action.searchTerm}`,
+      headers: {'Accept': 'application/vnd.github.cloak-preview',
+          'Content-Type': 'application/vnd.github.cloak-preview'}
     });
     yield put(actions.searchSuccess(fetchResponse));
   } catch (error) {

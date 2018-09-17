@@ -1,5 +1,16 @@
-function request({ url, method = "GET" }) {
-  return fetch(url, { method }).then(response => response.json());
+function request({ url, method = "GET", headers={} }) {
+    const requestHeaders = new Headers();
+    Object.entries(headers).forEach(([key, value]) => {
+      requestHeaders.append(key, value);
+    });
+
+    const requestOptions = { method,
+        headers: requestHeaders,
+    };
+
+    const fetchRequest = new Request(url, requestOptions);
+
+    return fetch(fetchRequest).then(response => response.json());
 }
 
 export default request;

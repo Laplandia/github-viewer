@@ -40,11 +40,28 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case actionTypes.SET_USER_ID: {
-      return {
-        ...state,
-        userId: action.userId
-      };
+    case actionTypes.SEARCH_REQUEST: {
+        return {
+            ...state,
+            isFetching: true,
+            error: null
+        };
+    }
+
+    case actionTypes.SEARCH_SUCCESS: {
+        return {
+            ...state,
+            isFetching: false,
+            commits: action.commits
+        };
+    }
+
+    case actionTypes.SEARCH_FAILURE: {
+        return {
+            ...state,
+            isFetching: false,
+            error: action.error
+        };
     }
 
     default: {

@@ -11,11 +11,17 @@ import Button from '@material-ui/core/es/Button/Button';
 import Input from '@material-ui/core/Input';
 import application from '../../../store/application';
 import Commit from '../../components/Commit/Commit';
+import SearchBar from 'material-ui-search-bar'
 
 class RepoContainer extends React.Component {
   static propTypes = {};
 
   static defaultProps = {};
+
+  constructor () {
+      super();
+      this.state = {};
+  }
 
   componentDidMount() {
     console.log('initializing commits');
@@ -26,12 +32,18 @@ class RepoContainer extends React.Component {
   /* RENDER                                                                                     */
   /* ------------------------------------------------------------------------------------------ */
   render() {
-    const { commits, isFetching, showCommits } = this.props;
+    const { commits, isFetching, searchCommits } = this.props;
     if (isFetching) {
       return <Loading />;
     }
     return (
-      <div>{commits.map(commit => <Commit key={commit.sha} sha={commit.sha} message={commit.commit.message} />)}</div>
+      <div>
+          <SearchBar
+              value={this.state.value}
+              onChange={(newValue) => this.setState({ value: newValue })}
+              onRequestSearch={() => searchCommits(this.state.value)}
+          />
+          {commits.map(commit => <Commit key={commit.sha} sha={commit.sha} message={commit.commit.message} />)}</div>
     );
   }
 }
@@ -44,6 +56,7 @@ export default connect(
   }),
   {
     init: commits.actions.init,
-    showCommits: commits.actions.showCommits
+    showCommits: commits.actions.showCommits,
+    searchCommits: commits.actions.search
   }
 )(RepoContainer);
