@@ -20,14 +20,13 @@ function* init(action) {
 
 function* search(action) {
   yield put(actions.searchRequest());
-
-  const repoName = yield select(selectors.getRepoId);
+  const state = yield select();
+  const repoName = selectors.getRepoId(state.commits);
 
   try {
     const fetchResponse = yield request({
       url: `https://api.github.com/search/commits?q=repo:${repoName}+${action.searchTerm}`,
-      headers: {'Accept': 'application/vnd.github.cloak-preview',
-          'Content-Type': 'application/vnd.github.cloak-preview'}
+      headers: {'Accept': 'application/vnd.github.cloak-preview'}
     });
     yield put(actions.searchSuccess(fetchResponse));
   } catch (error) {

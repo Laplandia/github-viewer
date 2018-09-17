@@ -52,7 +52,7 @@ export default (state = defaultState, action) => {
         return {
             ...state,
             isFetching: false,
-            commits: action.commits
+            commits: action.commits.items
         };
     }
 
