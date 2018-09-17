@@ -1,6 +1,6 @@
-function request({ url, method = "GET", headers={} }) {
+function request({ url, method = "GET", headers=[] }) {
     const requestHeaders = new Headers();
-    Object.entries(headers).forEach(([key, value]) => {
+    headers.forEach(([key, value]) => {
       requestHeaders.append(key, value);
     });
 
