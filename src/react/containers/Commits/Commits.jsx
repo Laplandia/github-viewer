@@ -1,14 +1,7 @@
 import React from 'react';
-import {} from 'prop-types';
 import { connect } from 'react-redux';
 import commits from '../../../store/commits';
 import Loading from '../../components/Loading/Loading';
-import Card from '@material-ui/core/es/Card/Card';
-import CardContent from '@material-ui/core/es/CardContent/CardContent';
-import Typography from '@material-ui/core/es/Typography/Typography';
-import CardActions from '@material-ui/core/es/CardActions/CardActions';
-import Button from '@material-ui/core/es/Button/Button';
-import Input from '@material-ui/core/Input';
 import application from '../../../store/application';
 import Commit from '../../components/Commit/Commit';
 import SearchBar from 'material-ui-search-bar'
@@ -24,7 +17,6 @@ class RepoContainer extends React.Component {
   }
 
   componentDidMount() {
-    console.log('initializing commits');
     this.props.init(this.props.repoId);
   }
 
