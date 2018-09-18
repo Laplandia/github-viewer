@@ -4,16 +4,16 @@ import commits from '../../../store/commits';
 import Loading from '../../components/Loading/Loading';
 import application from '../../../store/application';
 import Commit from '../../components/Commit/Commit';
-import SearchBar from 'material-ui-search-bar'
+import SearchBar from 'material-ui-search-bar';
 
 class RepoContainer extends React.Component {
   static propTypes = {};
 
   static defaultProps = {};
 
-  constructor () {
-      super();
-      this.state = {};
+  constructor() {
+    super();
+    this.state = {};
   }
 
   componentDidMount() {
@@ -30,12 +30,13 @@ class RepoContainer extends React.Component {
     }
     return (
       <div>
-          <SearchBar
-              value={this.state.value}
-              onChange={(newValue) => this.setState({ value: newValue })}
-              onRequestSearch={() => searchCommits(this.state.value)}
-          />
-          {commits.map(commit => <Commit key={commit.sha} sha={commit.sha} message={commit.commit.message} />)}</div>
+        <SearchBar
+          value={this.state.value}
+          onChange={newValue => this.setState({ value: newValue })}
+          onRequestSearch={() => searchCommits(this.state.value)}
+        />
+        {commits.map(commit => <Commit key={commit.sha} sha={commit.sha} message={commit.commit.message} />)}
+      </div>
     );
   }
 }

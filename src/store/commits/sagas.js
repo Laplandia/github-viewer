@@ -26,7 +26,10 @@ function* search(action) {
   try {
     const fetchResponse = yield request({
       url: `https://api.github.com/search/commits?q=repo:${repoName}+${action.searchTerm}`,
-      headers: [['Accept', 'application/vnd.github.cloak-preview'], ['Accept', 'application/vnd.github.v3.text-match+json']]
+      headers: [
+        ['Accept', 'application/vnd.github.cloak-preview'],
+        ['Accept', 'application/vnd.github.v3.text-match+json']
+      ]
     });
     yield put(actions.searchSuccess(fetchResponse));
   } catch (error) {

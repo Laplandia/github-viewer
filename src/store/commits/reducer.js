@@ -41,27 +41,27 @@ export default (state = defaultState, action) => {
     }
 
     case actionTypes.SEARCH_REQUEST: {
-        return {
-            ...state,
-            isFetching: true,
-            error: null
-        };
+      return {
+        ...state,
+        isFetching: true,
+        error: null
+      };
     }
 
     case actionTypes.SEARCH_SUCCESS: {
-        return {
-            ...state,
-            isFetching: false,
-            commits: action.commits.items
-        };
+      return {
+        ...state,
+        isFetching: false,
+        commits: action.commits.items
+      };
     }
 
     case actionTypes.SEARCH_FAILURE: {
-        return {
-            ...state,
-            isFetching: false,
-            error: action.error
-        };
+      return {
+        ...state,
+        isFetching: false,
+        error: action.error
+      };
     }
 
     default: {
