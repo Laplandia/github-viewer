@@ -1,12 +1,14 @@
 const getIsFetching = state => state.isFetching;
 
-const getCommits = state => {
-  console.log('state');
-  console.log(state);
-  return state.commits;
-};
+const getCommits = state => state.commits;
+
+const getRepoId = state => state.repoId;
+
+const getSearchTerm = state => state.searchTerm;
 
 export default {
   getIsFetching,
-  getCommits
+  getCommits,
+  getRepoId,
+  getSearchTerm
 };

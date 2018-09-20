@@ -1,7 +1,6 @@
 import React from 'react';
-import { bool, object, func, shape, string } from 'prop-types';
+import { string } from 'prop-types';
 import { connect } from 'react-redux';
-import { Route } from 'react-router';
 
 import HeaderContainer from '../../containers/Header';
 import MainLayout from '../../layouts/Main';
@@ -32,10 +31,7 @@ class Application extends React.Component {
   };
 
   render() {
-    const {
-      match: { params },
-      screen
-    } = this.props;
+    const { screen } = this.props;
     const pageRenderer = {
       repos: this.renderRepos,
       commits: this.renderCommits

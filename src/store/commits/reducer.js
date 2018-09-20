@@ -4,7 +4,8 @@ const defaultState = {
   repoId: null,
   isFetching: true,
   error: null,
-  commits: []
+  commits: [],
+  searchTerm: ''
 };
 
 export default (state = defaultState, action) => {
@@ -12,7 +13,8 @@ export default (state = defaultState, action) => {
     case actionTypes.INIT: {
       return {
         ...state,
-        repoId: action.repoId
+        repoId: action.repoId,
+        searchTerm: ''
       };
     }
 
@@ -40,10 +42,34 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case actionTypes.SET_USER_ID: {
+    case actionTypes.SEARCH: {
       return {
         ...state,
-        userId: action.userId
+        searchTerm: action.searchTerm
+      };
+    }
+
+    case actionTypes.SEARCH_REQUEST: {
+      return {
+        ...state,
+        isFetching: true,
+        error: null
+      };
+    }
+
+    case actionTypes.SEARCH_SUCCESS: {
+      return {
+        ...state,
+        isFetching: false,
+        commits: action.commits.items
+      };
+    }
+
+    case actionTypes.SEARCH_FAILURE: {
+      return {
+        ...state,
+        isFetching: false,
+        error: action.error
       };
     }
 
