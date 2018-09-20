@@ -29,14 +29,14 @@ function* search(action) {
   }
 
   try {
-      const requestObject =
-       {
-            url: `https://api.github.com/search/commits?q=repo:${repoName}+${action.searchTerm}`,
-            headers: [
-              ['Accept', 'application/vnd.github.cloak-preview'],
-              ['Accept', 'application/vnd.github.v3.text-match+json']
-            ]
-          };
+    const requestObject =
+      {
+        url: `https://api.github.com/search/commits?q=repo:${repoName}+${action.searchTerm}`,
+        headers: [
+          ['Accept', 'application/vnd.github.cloak-preview'],
+          ['Accept', 'application/vnd.github.v3.text-match+json']
+        ]
+      };
 
     const fetchResponse = yield request(requestObject);
     yield put(actions.searchSuccess(fetchResponse));
