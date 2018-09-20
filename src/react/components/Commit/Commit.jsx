@@ -33,7 +33,6 @@ class Commit extends React.PureComponent {
 
     const matchingRanges = this.getCommitRanges(matches).flat();
     const matchingWords = matchingRanges.map(range => range.text);
-    console.log(matchingWords);
     const lines = message.split('\n');
     const header = lines.shift();
     return (

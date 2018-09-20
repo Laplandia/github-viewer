@@ -12,7 +12,6 @@ class RepoContainer extends React.Component {
   static defaultProps = {};
 
   componentDidMount() {
-    console.log('initializing repos');
     this.props.init();
   }
 
