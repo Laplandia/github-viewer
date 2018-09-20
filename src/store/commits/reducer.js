@@ -4,7 +4,8 @@ const defaultState = {
   repoId: null,
   isFetching: true,
   error: null,
-  commits: []
+  commits: [],
+  searchTerm: ''
 };
 
 export default (state = defaultState, action) => {
@@ -12,7 +13,8 @@ export default (state = defaultState, action) => {
     case actionTypes.INIT: {
       return {
         ...state,
-        repoId: action.repoId
+        repoId: action.repoId,
+        searchTerm: ''
       };
     }
 

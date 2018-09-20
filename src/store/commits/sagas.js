@@ -23,24 +23,27 @@ function* search(action) {
   const state = yield select();
   const repoName = selectors.getRepoId(state.commits);
 
+  if (action.searchTerm === '') {
+    yield put(actions.init(repoName));
+    return;
+  }
+
   try {
-    const requestObject =
-      action.searchTerm !== ''
-        ? {
+      const requestObject =
+       {
             url: `https://api.github.com/search/commits?q=repo:${repoName}+${action.searchTerm}`,
             headers: [
               ['Accept', 'application/vnd.github.cloak-preview'],
               ['Accept', 'application/vnd.github.v3.text-match+json']
             ]
-          }
-        : {
-            url: `https://api.github.com/repos/${action.repoId}/commits`
           };
+
     const fetchResponse = yield request(requestObject);
     yield put(actions.searchSuccess(fetchResponse));
   } catch (error) {
     yield put(actions.searchFailure(error));
   }
+
 }
 
 export default function*() {

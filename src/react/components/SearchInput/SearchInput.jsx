@@ -18,17 +18,31 @@ class SearchInput extends React.PureComponent {
     this.state = { value: props.initialValue };
   }
 
+  onChange = (newValue) => {
+    this.setState({value: newValue});
+  };
+
+  onSearch = () => {
+    this.props.searchCommits(this.state.value);
+  };
+
+  onCancelSearch = () => {
+    this.setState({value: ''}, () => this.onSearch());
+  };
+
   render() {
-    const { searchCommits } = this.props;
     return (
       <SearchBar
         className={b().toString()}
         value={this.state.value}
-        onChange={newValue => this.setState({ value: newValue })}
-        onRequestSearch={() => searchCommits(this.state.value)}
+        onChange={this.onChange}
+        onRequestSearch={this.onSearch }
+        onCancelSearch={this.onCancelSearch}
       />
     );
   }
+
+
 }
 
 export default SearchInput;

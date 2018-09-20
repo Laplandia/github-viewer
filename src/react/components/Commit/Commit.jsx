@@ -44,9 +44,9 @@ class Commit extends React.PureComponent {
             <Highlighter searchWords={matchingWords} autoEscape={true} textToHighlight={header} />
           </Typography>
           <Typography component="p">
-            {lines.map(function(item) {
+            {lines.map(function(item, i) {
               return (
-                <span>
+                <span key={i}>
                   <Highlighter searchWords={matchingWords} autoEscape={true} textToHighlight={item} />
                   <br />
                 </span>
