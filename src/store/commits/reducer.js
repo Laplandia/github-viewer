@@ -40,6 +40,13 @@ export default (state = defaultState, action) => {
       };
     }
 
+    case actionTypes.SEARCH: {
+      return {
+        ...state,
+        searchTerm: action.searchTerm
+      };
+    }
+
     case actionTypes.SEARCH_REQUEST: {
       return {
         ...state,
