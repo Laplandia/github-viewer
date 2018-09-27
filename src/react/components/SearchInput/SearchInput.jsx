@@ -18,8 +18,8 @@ class SearchInput extends React.PureComponent {
     this.state = { value: props.initialValue };
   }
 
-  onChange = (newValue) => {
-    this.setState({value: newValue});
+  onChange = newValue => {
+    this.setState({ value: newValue });
   };
 
   onSearch = () => {
@@ -27,7 +27,7 @@ class SearchInput extends React.PureComponent {
   };
 
   onCancelSearch = () => {
-    this.setState({value: ''}, () => this.onSearch());
+    this.setState({ value: '' }, () => this.onSearch());
   };
 
   render() {
@@ -36,13 +36,11 @@ class SearchInput extends React.PureComponent {
         className={b().toString()}
         value={this.state.value}
         onChange={this.onChange}
-        onRequestSearch={this.onSearch }
+        onRequestSearch={this.onSearch}
         onCancelSearch={this.onCancelSearch}
       />
     );
   }
-
-
 }
 
 export default SearchInput;

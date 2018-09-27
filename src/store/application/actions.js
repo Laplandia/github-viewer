@@ -6,7 +6,7 @@ const showCommits = repoUrl => ({
 });
 
 const showRepos = () => ({
-    type: actionTypes.SHOW_REPOS
+  type: actionTypes.SHOW_REPOS
 });
 
 export default {

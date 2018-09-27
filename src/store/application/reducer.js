@@ -18,7 +18,7 @@ export default (state = defaultState, action) => {
     case actionTypes.SHOW_REPOS: {
       return {
         ...state,
-        screen: 'repos',
+        screen: 'repos'
       };
     }
 
