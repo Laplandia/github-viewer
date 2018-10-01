@@ -1,0 +1,9 @@
+/node_modules/
+/public/
+/config/
+/build/
+/scripts/
+
+/src/helpers/
+/src/registerServiceWorker.js
+/src/react/containers/Repos/Repos.jsx
