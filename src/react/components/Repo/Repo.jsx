@@ -24,7 +24,7 @@ class Repo extends React.PureComponent {
 
   static defaultProps = {};
 
-  handleShowCommits = e => {
+  handleShowCommits = () => {
     this.props.showCommits(this.props.fullName);
   };
 

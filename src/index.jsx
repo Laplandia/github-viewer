@@ -15,8 +15,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-        <Route exact path={'/'} component={Application} />
-        <Route path={'/:projectId'} component={Application} />
+        <Route exact path="/" component={Application} />
+        <Route path="/:projectId" component={Application} />
       </Switch>
     </Router>
   </Provider>,

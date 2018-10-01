@@ -1,7 +1,7 @@
 import actionTypes from './actionTypes';
 
 const defaultState = {
-  screen: 'repos', //todo: enum
+  screen: 'repos', // todo: enum
   selectedRepo: null
 };
 
