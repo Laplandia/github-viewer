@@ -8,11 +8,11 @@ const b = bemCl('lfa-report-layout');
 class ReportLayout extends React.PureComponent {
   static propTypes = {
     top: element,
-    bottom: element.isRequired,
+    bottom: element.isRequired
   };
 
   static defaultProps = {
-    top: null,
+    top: null
   };
 
   /* ------------------------------------------------------------------------------------------ */
