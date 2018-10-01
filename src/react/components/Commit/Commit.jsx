@@ -20,18 +20,18 @@ class Commit extends React.PureComponent {
 
   static defaultProps = {};
 
-  getCommitRanges(matches) {
+  static getCommitRanges(matches) {
     return matches.filter(match => match.property === 'message').map(match => Commit.getRange(match));
   }
 
-  static getRange(match) {
-    return match.matches.map(match => ({ start: match.indices[0], end: match.indices[1], text: match.text }));
+  static getRange(matchObject) {
+    return matchObject.matches.map(match => ({ start: match.indices[0], end: match.indices[1], text: match.text }));
   }
 
   render() {
     const { sha, message, matches = [] } = this.props;
 
-    const matchingRanges = this.getCommitRanges(matches).flat();
+    const matchingRanges = Commit.getCommitRanges(matches).flat();
     const matchingWords = matchingRanges.map(range => range.text);
     const lines = message.split('\n');
     const header = lines.shift();
@@ -40,17 +40,16 @@ class Commit extends React.PureComponent {
         <CardContent>
           <Typography color="textSecondary">{sha}</Typography>
           <Typography variant="headline" component="h4" className={b('header').toString()}>
-            <Highlighter searchWords={matchingWords} autoEscape={true} textToHighlight={header} />
+              <Highlighter searchWords={matchingWords} autoEscape={true} textToHighlight={header} />
           </Typography>
           <Typography component="p">
-            {lines.map(function(item, i) {
-              return (
-                <span key={i}>
+            {lines.map((item, i) => (
+              // eslint-disable-next-line
+              <span key={i}>
                   <Highlighter searchWords={matchingWords} autoEscape={true} textToHighlight={item} />
-                  <br />
-                </span>
-              );
-            })}
+                <br />
+              </span>
+            ))}
           </Typography>
         </CardContent>
       </Card>

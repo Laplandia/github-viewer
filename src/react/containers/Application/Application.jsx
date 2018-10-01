@@ -2,7 +2,7 @@ import React from 'react';
 import { string } from 'prop-types';
 import { connect } from 'react-redux';
 
-import HeaderContainer from '../../containers/Header';
+import HeaderContainer from '../Header';
 import MainLayout from '../../layouts/Main';
 import application from '../../../store/application';
 import Repos from '../Repos/Repos';
@@ -22,13 +22,9 @@ class Application extends React.Component {
   /* ------------------------------------------------------------------------------------------ */
   /* RENDER                                                                                     */
   /* ------------------------------------------------------------------------------------------ */
-  renderRepos = () => {
-    return <Repos />;
-  };
+  renderRepos = () => <Repos />;
 
-  renderCommits = () => {
-    return <Commits />;
-  };
+  renderCommits = () => <Commits />;
 
   render() {
     const { screen } = this.props;
@@ -39,14 +35,7 @@ class Application extends React.Component {
 
     return (
       <div>
-        <MainLayout
-          header={
-            <div>
-              <HeaderContainer />
-            </div>
-          }
-          body={pageRenderer[screen]()}
-        />
+        <MainLayout header={<HeaderContainer />} body={pageRenderer[screen]()} />
       </div>
     );
   }

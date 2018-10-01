@@ -1,8 +1,6 @@
 const getIsFetching = state => state.isFetching;
 
-const getRepos = state => {
-  return state.repos;
-};
+const getRepos = state => state.repos;
 
 export default {
   getIsFetching,

@@ -16,7 +16,7 @@ try {
     enhancers.push(reduxDevToolExtension());
   }
 } catch (e) {
-  //do nothing
+  // do nothing
 }
 
 export default function(initialData) {

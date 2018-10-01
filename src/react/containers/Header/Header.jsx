@@ -1,17 +1,18 @@
 import React from 'react';
 import { string } from 'prop-types';
 import { connect } from 'react-redux';
-import application from '../../../store/application';
 import Typography from '@material-ui/core/es/Typography/Typography';
 import IconButton from '@material-ui/core/es/IconButton/IconButton';
 import BackIcon from '@material-ui/icons/KeyboardBackspace';
+
+import application from '../../../store/application';
 
 class HeaderContainer extends React.Component {
   static propTypes = { screen: string.isRequired };
 
   static defaultProps = {};
 
-  handleShowRepos = e => {
+  handleShowRepos = () => {
     this.props.showRepos();
   };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { func, bool, array } from 'prop-types';
-import commits from '../../../store/commits';
+import commitStore from '../../../store/commits';
 import Loading from '../../components/Loading/Loading';
 import application from '../../../store/application';
 import Commit from '../../components/Commit/Commit';
@@ -48,13 +48,13 @@ class RepoContainer extends React.Component {
 export default connect(
   state => ({
     repoId: application.selectors.getSelectedRepo(state.application),
-    commits: commits.selectors.getCommits(state.commits),
-    isFetching: commits.selectors.getIsFetching(state.commits),
-    searchTerm: commits.selectors.getSearchTerm(state.commits)
+    commits: commitStore.selectors.getCommits(state.commits),
+    isFetching: commitStore.selectors.getIsFetching(state.commits),
+    searchTerm: commitStore.selectors.getSearchTerm(state.commits)
   }),
   {
-    init: commits.actions.init,
-    showCommits: commits.actions.showCommits,
-    searchCommits: commits.actions.search
+    init: commitStore.actions.init,
+    showCommits: commitStore.actions.showCommits,
+    searchCommits: commitStore.actions.search
   }
 )(RepoContainer);
