@@ -40,13 +40,13 @@ class Commit extends React.PureComponent {
         <CardContent>
           <Typography color="textSecondary">{sha}</Typography>
           <Typography variant="headline" component="h4" className={b('header').toString()}>
-              <Highlighter searchWords={matchingWords} autoEscape={true} textToHighlight={header} />
+            <Highlighter searchWords={matchingWords} autoEscape={true} textToHighlight={header} />
           </Typography>
           <Typography component="p">
             {lines.map((item, i) => (
               // eslint-disable-next-line
               <span key={i}>
-                  <Highlighter searchWords={matchingWords} autoEscape={true} textToHighlight={item} />
+                <Highlighter searchWords={matchingWords} autoEscape={true} textToHighlight={item} />
                 <br />
               </span>
             ))}
