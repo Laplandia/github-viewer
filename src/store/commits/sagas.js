@@ -5,7 +5,7 @@ import actions from './actions';
 import selectors from './selectors';
 import request from '../../helpers/request';
 
-function* init(action) {
+export function* init(action) {
   yield put(actions.initRequest());
 
   try {
@@ -18,7 +18,7 @@ function* init(action) {
   }
 }
 
-function* search(action) {
+export function* search(action) {
   yield put(actions.searchRequest());
   const state = yield select();
   const repoName = selectors.getRepoId(state.commits);

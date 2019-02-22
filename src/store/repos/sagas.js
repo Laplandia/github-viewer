@@ -4,7 +4,7 @@ import actionTypes from './actionTypes';
 import actions from './actions';
 import request from '../../helpers/request';
 
-function* init() {
+export function* init() {
   yield put(actions.initRequest());
 
   try {
