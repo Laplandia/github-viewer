@@ -14,16 +14,4 @@ describe('Commits reducer', () => {
 
     expect(state).toEqual({ ...defaultState, repoId: repoId, searchTerm: '' });
   });
-  //
-  // it('success fileexport state', () => {
-  //   const state = commitsReducer(initialState, fileExportSuccess());
-  //
-  //   expect(state).toEqual({ ...initialState, isFetching: false, isSucceed: true });
-  // });
-  //
-  // it('fail fileexport state', () => {
-  //   const state = commitsReducer(initialState, fileExportFail());
-  //
-  //   expect(state).toEqual({ ...initialState, isFetching: false, isFailed: true });
-  // });
 });
