@@ -29,6 +29,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
