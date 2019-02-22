@@ -1,6 +1,6 @@
 import actionTypes from './actionTypes';
 
-const defaultState = {
+export const defaultState = {
   repoId: null,
   isFetching: true,
   error: null,

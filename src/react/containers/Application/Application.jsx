@@ -7,6 +7,8 @@ import MainLayout from '../../layouts/Main';
 import application from '../../../store/application';
 import Repos from '../Repos/Repos';
 import Commits from '../Commits/Commits';
+import MuiThemeProvider from "@material-ui/core/es/styles/MuiThemeProvider";
+import { createMuiTheme } from '@material-ui/core/styles';
 
 class Application extends React.Component {
   static propTypes = {
@@ -14,6 +16,8 @@ class Application extends React.Component {
   };
 
   static defaultProps = {};
+
+  theme = createMuiTheme();
 
   /* ------------------------------------------------------------------------------------------ */
   /* HANDLERS                                                                                   */
@@ -35,7 +39,9 @@ class Application extends React.Component {
 
     return (
       <div>
-        <MainLayout header={<HeaderContainer />} body={pageRenderer[screen]()} />
+        <MuiThemeProvider theme={this.theme}>
+          <MainLayout header={<HeaderContainer />} body={pageRenderer[screen]()} />
+        </MuiThemeProvider>
       </div>
     );
   }
