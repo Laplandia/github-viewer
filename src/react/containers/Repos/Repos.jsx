@@ -2,7 +2,7 @@ import React from 'react';
 import {} from 'prop-types';
 import { connect } from 'react-redux';
 import repos from '../../../store/repos';
-import Loading from '../../components/Loading/Loading';
+import { Loading } from '../../components/Loading/Loading';
 import application from '../../../store/application';
 import Repo from '../../components/Repo/Repo';
 

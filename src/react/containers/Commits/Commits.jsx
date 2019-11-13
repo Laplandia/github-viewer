@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { func, bool, array } from 'prop-types';
 import commitStore from '../../../store/commits';
-import Loading from '../../components/Loading/Loading';
+import { Loading } from '../../components/Loading/Loading';
 import application from '../../../store/application';
 import Commit from '../../components/Commit/Commit';
 
