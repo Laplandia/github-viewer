@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import repos from '../../../store/repos';
 import { Loading } from '../../components/Loading/Loading';
 import application from '../../../store/application';
-import Repo from '../../components/Repo/Repo';
+import { Repo } from '../../components/Repo/Repo';
 
 class RepoContainer extends React.Component {
   static propTypes = {};
