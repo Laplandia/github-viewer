@@ -3,7 +3,7 @@ import { string } from 'prop-types';
 import { connect } from 'react-redux';
 
 import HeaderContainer from '../Header';
-import MainLayout from '../../layouts/Main';
+import { MainLayout } from '../../layouts/Main';
 import application from '../../../store/application';
 import Repos from '../Repos/Repos';
 import Commits from '../Commits/Commits';

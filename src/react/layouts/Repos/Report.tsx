@@ -1,6 +1,4 @@
 import React from 'react';
-import { element } from 'prop-types';
-import './Report.scss';
 import {Header} from "./Report.styles";
 
 type ReportLayoutProps = {
