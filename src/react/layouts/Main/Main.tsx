@@ -1,6 +1,4 @@
 import React from 'react';
-import { element } from 'prop-types';
-import './Main.css';
 import {Header} from "./Main.styles";
 
 
