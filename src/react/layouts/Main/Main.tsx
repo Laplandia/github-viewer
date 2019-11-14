@@ -1,5 +1,5 @@
 import React from 'react';
-import {Header} from "./Main.styles";
+import {Header, Body} from "./Main.styles";
 
 
 type MainLayoutProps = {
@@ -11,7 +11,7 @@ export const MainLayout = ({header, body}:MainLayoutProps)=> {
   return (
       <div>
         <Header>{header}</Header>
-        <div>{body}</div>
+        <Body>{body}</Body>
       </div>
   )
 };
